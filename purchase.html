@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Purchase | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    /* Paste your global styles.css content here or link externally */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <details>
+          <summary><i class="ri-dashboard-line"></i> Dashboard</summary>
+          <a href="dashboard.html">Home</a>
+        </details>
+        <details>
+          <summary><i class="ri-store-line"></i> Products & Inventory</summary>
+          <a href="products.html">Products</a>
+          <a href="products-list.html">Product List</a>
+          <a href="purchase.html" class="active">Stock In/Out</a>
+          <a href="products.html">Stock Update</a>
+        </details>
+        <details>
+          <summary><i class="ri-shopping-bag-line"></i> Sales & Purchase</summary>
+          <a href="purchase.html">Invoice (POS)</a>
+          <a href="sales.html">Sales</a>
+          <a href="purchase.html">Purchase</a>
+        </details>
+        <details>
+          <summary><i class="ri-group-line"></i> People</summary>
+          <a href="customers.html">Customers</a>
+          <a href="suppliers.html">Suppliers</a>
+          <a href="register.html">Create Profile</a>
+        </details>
+        <details>
+          <summary><i class="ri-settings-3-line"></i> Reports & Settings</summary>
+          <a href="reports.html">Reports</a>
+          <a href="reports.html">MIS Report</a>
+          <a href="settings.html">Settings</a>
+          <a href="users.html">User Management</a>
+        </details>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle Dark Mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search modules..." autocomplete="off" />
+          <div id="search-suggestions"></div>
+        </div>
+        <div class="header-actions">
+          <span id="live-datetime"></span>
+          <a href="login.html" class="btn-login-header logout-btn" title="Logout">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <h2>Stock In / Stock Out Entry</h2>
+        <form id="purchase-form">
+          <label for="product-select">Select Product</label>
+          <select id="product-select" name="product-select" required>
+            <option value="">-- Select Product --</option>
+            <!-- Example static options, replace with dynamic list -->
+            <option value="prod1">Product 1</option>
+            <option value="prod2">Product 2</option>
+          </select>
+
+          <label for="transaction-type">Transaction Type</label>
+          <select id="transaction-type" name="transaction-type" required>
+            <option value="">-- Select Type --</option>
+            <option value="in">Stock In</option>
+            <option value="out">Stock Out</option>
+          </select>
+
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required />
+
+          <label for="transaction-date">Date</label>
+          <input type="date" id="transaction-date" name="transaction-date" required />
+
+          <button type="submit" class="btn-login">Save Entry</button>
+        </form>
+      </main>
+      <footer class="footer-bar">2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.</footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="alert('AI Assistant coming soon!')">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script>
+    function updateTime() {
+      document.getElementById('live-datetime').textContent = new Date().toLocaleString();
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Global search code (reuse previous search logic)...
+
+    document.getElementById('purchase-form').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Stock entry saved (placeholder)');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

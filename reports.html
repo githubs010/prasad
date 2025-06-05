@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reports | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    .reports-section {
+      margin-bottom: 2rem;
+    }
+    .reports-section h2 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: var(--theme-dark);
+    }
+    .report-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+    }
+    .report-card {
+      background: var(--card-bg-light);
+      padding: 1rem 1.4rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-light);
+      width: 240px;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    body.dark .report-card {
+      background: var(--card-bg-dark);
+      box-shadow: var(--shadow-dark);
+    }
+    .report-card:hover {
+      background: var(--theme);
+      color: white;
+      box-shadow: 0 8px 24px var(--theme);
+    }
+    .report-card i {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+    .report-card-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+      text-align: left;
+    }
+    body.dark th, body.dark td {
+      border-color: var(--border-dark);
+    }
+    th {
+      background-color: var(--theme);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="customers.html"><i class="ri-user-line"></i> Customers</a>
+        <a href="suppliers.html"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html" class="active"><i class="ri-bar-chart-line"></i> Reports</a>
+        <a href="settings.html"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>Reports</h1>
+          <small class="header-footer-text">View GST, MIS, and ledger reports.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <section class="reports-section" id="gst-reports">
+          <h2>GST Reports</h2>
+          <div class="report-cards">
+            <div class="report-card" tabindex="0">
+              <i class="ri-file-list-3-line"></i>
+              <div class="report-card-title">GSTR-1 Report</div>
+            </div>
+            <div class="report-card" tabindex="0">
+              <i class="ri-file-list-3-line"></i>
+              <div class="report-card-title">GSTR-3B Report</div>
+            </div>
+            <div class="report-card" tabindex="0">
+              <i class="ri-file-list-3-line"></i>
+              <div class="report-card-title">GST Audit Report</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="reports-section" id="mis-reports">
+          <h2>MIS Reports</h2>
+          <div class="report-cards">
+            <div class="report-card" tabindex="0">
+              <i class="ri-bar-chart-box-line"></i>
+              <div class="report-card-title">Sales Summary</div>
+            </div>
+            <div class="report-card" tabindex="0">
+              <i class="ri-bar-chart-box-line"></i>
+              <div class="report-card-title">Purchase Summary</div>
+            </div>
+            <div class="report-card" tabindex="0">
+              <i class="ri-bar-chart-box-line"></i>
+              <div class="report-card-title">Stock Report</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="reports-section" id="ledger-reports">
+          <h2>Ledger Reports</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Account Name</th>
+                <th>Debit (₹)</th>
+                <th>Credit (₹)</th>
+                <th>Balance (₹)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cash Account</td>
+                <td>1,00,000</td>
+                <td>50,000</td>
+                <td>50,000</td>
+              </tr>
+              <tr>
+                <td>Bank Account</td>
+                <td>2,00,000</td>
+                <td>1,00,000</td>
+                <td>1,00,000</td>
+              </tr>
+              <tr>
+                <td>Sales Account</td>
+                <td>0</td>
+                <td>1,50,000</td>
+                <td>1,50,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="main-content login-main">
+    <header class="main-header">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="ri-moon-clear-line"></i>
+      </button>
+      <h1>Login</h1>
+      <div class="header-actions">
+        <a href="#" class="btn-login-header">Login</a>
+        <a href="#" class="btn-login-header logout-btn">Logout</a>
+      </div>
+    </header>
+    <main class="content login-content">
+      <form class="login-form" autocomplete="off" onsubmit="return false;">
+        <h2>Sign In to Your Account</h2>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required autocomplete="username" />
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password" />
+        <button type="submit" class="btn-login">Sign In</button>
+        <p class="login-footer-text">
+          Don't have an account? <a href="register.html">Register now</a>
+        </p>
+      </form>
+    </main>
+    <footer class="footer-bar">
+      2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+    </footer>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+
+</body>
+</html>

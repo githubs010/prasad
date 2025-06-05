@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    /* Paste the same CSS styles.css content here or link styles.css externally */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <details>
+          <summary><i class="ri-dashboard-line"></i> Dashboard</summary>
+          <a href="dashboard.html">Home</a>
+        </details>
+        <details open>
+          <summary><i class="ri-store-line"></i> Products & Inventory</summary>
+          <a href="products.html" class="active">Products</a>
+          <a href="products-list.html">Product List</a>
+          <a href="purchase.html">Stock In/Out</a>
+          <a href="products.html">Stock Update</a>
+        </details>
+        <details>
+          <summary><i class="ri-shopping-bag-line"></i> Sales & Purchase</summary>
+          <a href="purchase.html">Invoice (POS)</a>
+          <a href="sales.html">Sales</a>
+          <a href="purchase.html">Purchase</a>
+        </details>
+        <details>
+          <summary><i class="ri-group-line"></i> People</summary>
+          <a href="customers.html">Customers</a>
+          <a href="suppliers.html">Suppliers</a>
+          <a href="register.html">Create Profile</a>
+        </details>
+        <details>
+          <summary><i class="ri-settings-3-line"></i> Reports & Settings</summary>
+          <a href="reports.html">Reports</a>
+          <a href="reports.html">MIS Report</a>
+          <a href="settings.html">Settings</a>
+          <a href="users.html">User Management</a>
+        </details>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle Dark Mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search modules..." autocomplete="off" />
+          <div id="search-suggestions"></div>
+        </div>
+        <div class="header-actions">
+          <span id="live-datetime"></span>
+          <a href="login.html" class="btn-login-header logout-btn" title="Logout">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <h2>Add / Edit Product</h2>
+        <form id="product-form">
+          <label for="product-name">Product Name</label>
+          <input type="text" id="product-name" name="product-name" placeholder="Enter product name" required />
+          
+          <label for="product-code">Product Code</label>
+          <input type="text" id="product-code" name="product-code" placeholder="Enter product code" required />
+
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">-- Select Category --</option>
+            <option value="electronics">Electronics</option>
+            <option value="grocery">Grocery</option>
+            <option value="clothing">Clothing</option>
+            <!-- Add more categories as needed -->
+          </select>
+
+          <label for="price">Price (₹)</label>
+          <input type="number" id="price" name="price" min="0" step="0.01" placeholder="Enter price" required />
+
+          <label for="quantity">Quantity in Stock</label>
+          <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter quantity" required />
+
+          <button type="submit" class="btn-login">Save Product</button>
+        </form>
+      </main>
+      <footer class="footer-bar">2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.</footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="alert('AI Assistant coming soon!')">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script>
+    function updateTime() {
+      document.getElementById('live-datetime').textContent = new Date().toLocaleString();
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // Theme toggle placeholder
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Global search and suggestion logic here (same as dashboard) ...
+    // (You can reuse the search code provided before)
+
+    // Product form submission (just example placeholder)
+    document.getElementById('product-form').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Product saved (placeholder)');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

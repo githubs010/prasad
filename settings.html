@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .tab {
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      border-radius: 0.6rem;
+      background-color: var(--border-light);
+      font-weight: 600;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    body.dark .tab {
+      background-color: var(--border-dark);
+    }
+    .tab.active {
+      background-color: var(--theme);
+      color: white;
+      box-shadow: 0 4px 10px var(--theme-dark);
+    }
+    .tab-content {
+      background: var(--glass-bg);
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-light);
+      max-width: 800px;
+      transition: background-color 0.3s ease;
+    }
+    body.dark .tab-content {
+      background: var(--card-dark);
+      box-shadow: var(--shadow-dark);
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border-radius: 0.6rem;
+      border: 1.2px solid var(--border-light);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    body.dark input, body.dark select {
+      background: var(--input-dark);
+      color: var(--text-dark);
+      border-color: var(--border-dark);
+    }
+    input:focus, select:focus {
+      border-color: var(--theme);
+      outline: none;
+    }
+    button.save-btn {
+      background-color: var(--theme);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button.save-btn:hover {
+      background-color: var(--theme-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="customers.html"><i class="ri-user-line"></i> Customers</a>
+        <a href="suppliers.html"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html"><i class="ri-bar-chart-line"></i> Reports</a>
+        <a href="settings.html" class="active"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>Settings</h1>
+          <small class="header-footer-text">Configure system, taxes, currencies, and preferences.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <div class="tabs" role="tablist">
+          <div class="tab active" role="tab" tabindex="0" aria-selected="true" aria-controls="general-settings" id="tab-general">General</div>
+          <div class="tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="tax-settings" id="tab-tax">Tax Configuration</div>
+          <div class="tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="currency-settings" id="tab-currency">Currency Management</div>
+        </div>
+
+        <section id="general-settings" class="tab-content" role="tabpanel" aria-labelledby="tab-general">
+          <form autocomplete="off" onsubmit="return false;">
+            <div class="form-group">
+              <label for="company-name">Company Name</label>
+              <input type="text" id="company-name" placeholder="Enter company name" />
+            </div>
+            <div class="form-group">
+              <label for="business-email">Business Email</label>
+              <input type="email" id="business-email" placeholder="Enter business email" />
+            </div>
+            <div class="form-group">
+              <label for="business-phone">Contact Phone</label>
+              <input type="tel" id="business-phone" placeholder="Enter contact phone" />
+            </div>
+            <button class="save-btn">Save General Settings</button>
+          </form>
+        </section>
+
+        <section id="tax-settings" class="tab-content" role="tabpanel" aria-labelledby="tab-tax" hidden>
+          <form autocomplete="off" onsubmit="return false;">
+            <div class="form-group">
+              <label for="gst-number">GST Number</label>
+              <input type="text" id="gst-number" placeholder="Enter GST number" />
+            </div>
+            <div class="form-group">
+              <label for="tax-rate">Default Tax Rate (%)</label>
+              <input type="number" id="tax-rate" min="0" max="100" step="0.01" placeholder="Enter default tax rate" />
+            </div>
+            <button class="save-btn">Save Tax Settings</button>
+          </form>
+        </section>
+
+        <section id="currency-settings" class="tab-content" role="tabpanel" aria-labelledby="tab-currency" hidden>
+          <form autocomplete="off" onsubmit="return false;">
+            <div class="form-group">
+              <label for="default-currency">Default Currency</label>
+              <select id="default-currency">
+                <option value="INR" selected>INR - Indian Rupee</option>
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="currency-symbol">Currency Symbol</label>
+              <input type="text" id="currency-symbol" placeholder="Enter currency symbol" />
+            </div>
+            <button class="save-btn">Save Currency Settings</button>
+          </form>
+        </section>
+      </main>
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script>
+    // Tab switching logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('tabindex', '-1');
+          });
+          tabContents.forEach(tc => tc.hidden = true);
+
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          tab.setAttribute('tabindex', '0');
+
+          const panel = document.getElementById(tab.getAttribute('aria-controls'));
+          if(panel) panel.hidden = false;
+        });
+
+        tab.addEventListener('keydown', e => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            let newIndex;
+            const currentIndex = Array.from(tabs).indexOf(e.target);
+            if (e.key === 'ArrowRight') {
+              newIndex = (currentIndex + 1) % tabs.length;
+            } else {
+              newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+            }
+            tabs[newIndex].focus();
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+
+</body>
+</html>

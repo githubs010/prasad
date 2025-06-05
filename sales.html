@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sales Entry | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html" class="active"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="customers.html"><i class="ri-user-line"></i> Customers</a>
+        <a href="suppliers.html"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html"><i class="ri-bar-chart-line"></i> Reports</a>
+        <a href="settings.html"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>Sales Entry</h1>
+          <small class="header-footer-text">Record new sales invoices and details.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <form class="login-form" autocomplete="off" onsubmit="return false;">
+          <h2>New Sale</h2>
+
+          <label for="sales-invoice">Invoice Number</label>
+          <input type="text" id="sales-invoice" placeholder="Enter invoice number" required />
+
+          <label for="customer-name">Customer</label>
+          <input type="text" id="customer-name" placeholder="Enter customer name" required />
+
+          <label for="sales-date">Date</label>
+          <input type="date" id="sales-date" required />
+
+          <label for="product-select">Product</label>
+          <select id="product-select" required>
+            <option value="">Select product</option>
+            <option>Product 1</option>
+            <option>Product 2</option>
+            <option>Product 3</option>
+          </select>
+
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" placeholder="Enter quantity" min="1" required />
+
+          <label for="unit-price">Unit Price (₹)</label>
+          <input type="number" id="unit-price" placeholder="Enter unit price" min="0" step="0.01" required />
+
+          <label for="gst-rate">GST Rate (%)</label>
+          <input type="number" id="gst-rate" placeholder="Enter GST rate" min="0" max="100" step="0.01" />
+
+          <label for="total-amount">Total Amount (₹)</label>
+          <input type="number" id="total-amount" placeholder="Calculated automatically" readonly />
+
+          <button type="submit" class="btn-login">Save Sale</button>
+        </form>
+      </main>
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script>
+    // Auto calculate total amount = quantity * unit price + GST
+    document.addEventListener('DOMContentLoaded', () => {
+      const quantityInput = document.getElementById('quantity');
+      const unitPriceInput = document.getElementById('unit-price');
+      const gstRateInput = document.getElementById('gst-rate');
+      const totalAmountInput = document.getElementById('total-amount');
+
+      function calculateTotal() {
+        const qty = parseFloat(quantityInput.value) || 0;
+        const price = parseFloat(unitPriceInput.value) || 0;
+        const gstRate = parseFloat(gstRateInput.value) || 0;
+        const baseAmount = qty * price;
+        const gstAmount = (baseAmount * gstRate) / 100;
+        totalAmountInput.value = (baseAmount + gstAmount).toFixed(2);
+      }
+
+      quantityInput.addEventListener('input', calculateTotal);
+      unitPriceInput.addEventListener('input', calculateTotal);
+      gstRateInput.addEventListener('input', calculateTotal);
+    });
+  </script>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+
+</body>
+</html>

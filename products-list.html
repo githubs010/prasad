@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products List | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+      text-align: left;
+    }
+    body.dark th, body.dark td {
+      border-color: var(--border-dark);
+    }
+    th {
+      background-color: var(--theme);
+      color: white;
+    }
+    .action-btn {
+      background: var(--theme);
+      border: none;
+      padding: 0.35rem 0.7rem;
+      color: white;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-right: 0.3rem;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+    .action-btn:hover {
+      background: var(--theme-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html" class="active"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="customers.html"><i class="ri-user-line"></i> Customers</a>
+        <a href="suppliers.html"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html"><i class="ri-bar-chart-line"></i> Reports</a>
+        <a href="settings.html"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>Products List</h1>
+          <small class="header-footer-text">Manage your products here.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <table>
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Code</th>
+              <th>Category</th>
+              <th>Price (₹)</th>
+              <th>Stock</th>
+              <th>GST Rate (%)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Example Product 1</td>
+              <td>PRD001</td>
+              <td>Electronics</td>
+              <td>1000.00</td>
+              <td>50</td>
+              <td>18</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Example Product 2</td>
+              <td>PRD002</td>
+              <td>Stationery</td>
+              <td>250.00</td>
+              <td>150</td>
+              <td>12</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <!-- More product rows -->
+          </tbody>
+        </table>
+      </main>
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+
+</body>
+</html>

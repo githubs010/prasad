@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Management | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    .user-form {
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .user-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    .user-form input, .user-form select {
+      width: 100%;
+      padding: 0.55rem 1rem;
+      border-radius: 0.6rem;
+      border: 1.2px solid var(--border-light);
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      transition: border-color 0.3s ease;
+    }
+    body.dark .user-form input, body.dark .user-form select {
+      background: var(--input-dark);
+      color: var(--text-dark);
+      border-color: var(--border-dark);
+    }
+    .user-form input:focus, .user-form select:focus {
+      border-color: var(--theme);
+      outline: none;
+    }
+    .user-form button {
+      margin-top: 1.5rem;
+      background: var(--theme);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .user-form button:hover {
+      background: var(--theme-dark);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+      text-align: left;
+    }
+    body.dark th, body.dark td {
+      border-color: var(--border-dark);
+    }
+    th {
+      background-color: var(--theme);
+      color: white;
+    }
+    .action-btn {
+      background: var(--theme);
+      border: none;
+      padding: 0.3rem 0.7rem;
+      color: white;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-right: 0.3rem;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+    .action-btn:hover {
+      background: var(--theme-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="customers.html"><i class="ri-user-line"></i> Customers</a>
+        <a href="suppliers.html"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html"><i class="ri-bar-chart-line"></i> Reports</a>
+        <a href="settings.html"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html" class="active"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>User Management</h1>
+          <small class="header-footer-text">Manage users, roles, and permissions.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <form class="user-form" autocomplete="off" onsubmit="return false;">
+          <h2>Add New User</h2>
+          <label for="user-name">Full Name</label>
+          <input type="text" id="user-name" placeholder="Enter full name" required />
+
+          <label for="user-email">Email Address</label>
+          <input type="email" id="user-email" placeholder="Enter email" required />
+
+          <label for="user-role">Role</label>
+          <select id="user-role" required>
+            <option value="">Select role</option>
+            <option value="admin">Admin</option>
+            <option value="accountant">Accountant</option>
+            <option value="sales">Sales</option>
+            <option value="viewer">Viewer</option>
+          </select>
+
+          <label for="user-permissions">Permissions</label>
+          <select id="user-permissions" multiple size="4">
+            <option value="view">View Data</option>
+            <option value="edit">Edit Data</option>
+            <option value="delete">Delete Data</option>
+            <option value="export">Export Data</option>
+          </select>
+
+          <button type="submit">Save User</button>
+        </form>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Permissions</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alice Johnson</td>
+              <td>alice@example.com</td>
+              <td>Admin</td>
+              <td>View, Edit, Delete</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Bob Smith</td>
+              <td>bob@example.com</td>
+              <td>Sales</td>
+              <td>View, Edit</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <!-- More users -->
+          </tbody>
+        </table>
+      </main>
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

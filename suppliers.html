@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suppliers | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+      text-align: left;
+    }
+    body.dark th, body.dark td {
+      border-color: var(--border-dark);
+    }
+    th {
+      background-color: var(--theme);
+      color: white;
+    }
+    .action-btn {
+      background: var(--theme);
+      border: none;
+      padding: 0.3rem 0.7rem;
+      color: white;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-right: 0.3rem;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+    .action-btn:hover {
+      background: var(--theme-dark);
+    }
+    form.supplier-form {
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    form.supplier-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    form.supplier-form input, form.supplier-form textarea {
+      width: 100%;
+      padding: 0.55rem 1rem;
+      border-radius: 0.6rem;
+      border: 1.2px solid var(--border-light);
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      transition: border-color 0.3s ease;
+    }
+    form.supplier-form input:focus, form.supplier-form textarea:focus {
+      border-color: var(--theme);
+      outline: none;
+    }
+    body.dark form.supplier-form input, body.dark form.supplier-form textarea {
+      background: var(--input-dark, #23263b);
+      color: var(--text-dark);
+      border-color: var(--border-dark);
+    }
+    form.supplier-form button {
+      margin-top: 1.5rem;
+      background: var(--theme);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form.supplier-form button:hover {
+      background: var(--theme-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="customers.html"><i class="ri-user-line"></i> Customers</a>
+        <a href="suppliers.html" class="active"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html"><i class="ri-bar-chart-line"></i> Reports</a>
+        <a href="settings.html"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>Suppliers</h1>
+          <small class="header-footer-text">Manage your suppliers here.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <form class="supplier-form" autocomplete="off" onsubmit="return false;">
+          <h2>Add New Supplier</h2>
+          <label for="supplier-name">Supplier Name</label>
+          <input type="text" id="supplier-name" placeholder="Enter supplier name" required />
+
+          <label for="supplier-email">Email Address</label>
+          <input type="email" id="supplier-email" placeholder="Enter email" required />
+
+          <label for="supplier-phone">Phone Number</label>
+          <input type="tel" id="supplier-phone" placeholder="Enter phone number" />
+
+          <label for="supplier-address">Address</label>
+          <textarea id="supplier-address" rows="3" placeholder="Enter address"></textarea>
+
+          <label for="supplier-gst">GST Number</label>
+          <input type="text" id="supplier-gst" placeholder="Enter GST number" />
+
+          <button type="submit">Save Supplier</button>
+        </form>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>GST Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ABC Traders</td>
+              <td>abc@traders.com</td>
+              <td>+91 9876543210</td>
+              <td>789, Industrial Area, City</td>
+              <td>22CCCC0000C1Z7</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>XYZ Suppliers</td>
+              <td>xyz@suppliers.com</td>
+              <td>+91 9123456780</td>
+              <td>101, Market Road, City</td>
+              <td>33DDDDD1111D2Z8</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <!-- More suppliers here -->
+          </tbody>
+        </table>
+      </main>
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+
+</body>
+</html>

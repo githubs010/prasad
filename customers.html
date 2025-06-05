@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Customers | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+      text-align: left;
+    }
+    body.dark th, body.dark td {
+      border-color: var(--border-dark);
+    }
+    th {
+      background-color: var(--theme);
+      color: white;
+    }
+    .action-btn {
+      background: var(--theme);
+      border: none;
+      padding: 0.3rem 0.7rem;
+      color: white;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-right: 0.3rem;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+    .action-btn:hover {
+      background: var(--theme-dark);
+    }
+    form.customer-form {
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    form.customer-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    form.customer-form input, form.customer-form textarea {
+      width: 100%;
+      padding: 0.55rem 1rem;
+      border-radius: 0.6rem;
+      border: 1.2px solid var(--border-light);
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      transition: border-color 0.3s ease;
+    }
+    form.customer-form input:focus, form.customer-form textarea:focus {
+      border-color: var(--theme);
+      outline: none;
+    }
+    body.dark form.customer-form input, body.dark form.customer-form textarea {
+      background: var(--input-dark, #23263b);
+      color: var(--text-dark);
+      border-color: var(--border-dark);
+    }
+    form.customer-form button {
+      margin-top: 1.5rem;
+      background: var(--theme);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form.customer-form button:hover {
+      background: var(--theme-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="customers.html" class="active"><i class="ri-user-line"></i> Customers</a>
+        <a href="suppliers.html"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html"><i class="ri-bar-chart-line"></i> Reports</a>
+        <a href="settings.html"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="lavender" title="Lavender"></span>
+        <span class="pill" data-theme="mint" title="Mint"></span>
+        <span class="pill" data-theme="peach" title="Peach"></span>
+        <span class="pill" data-theme="coral" title="Coral"></span>
+        <span class="pill" data-theme="lemon" title="Lemon"></span>
+      </div>
+    </aside>
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>Customers</h1>
+          <small class="header-footer-text">Manage your customers here.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+      <main class="content">
+        <form class="customer-form" autocomplete="off" onsubmit="return false;">
+          <h2>Add New Customer</h2>
+          <label for="customer-name">Full Name</label>
+          <input type="text" id="customer-name" placeholder="Enter full name" required />
+
+          <label for="customer-email">Email Address</label>
+          <input type="email" id="customer-email" placeholder="Enter email" required />
+
+          <label for="customer-phone">Phone Number</label>
+          <input type="tel" id="customer-phone" placeholder="Enter phone number" />
+
+          <label for="customer-address">Address</label>
+          <textarea id="customer-address" rows="3" placeholder="Enter address"></textarea>
+
+          <label for="customer-gst">GST Number</label>
+          <input type="text" id="customer-gst" placeholder="Enter GST number" />
+
+          <button type="submit">Save Customer</button>
+        </form>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>GST Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>john@example.com</td>
+              <td>+91 9876543210</td>
+              <td>123, Main Street, City</td>
+              <td>22AAAAA0000A1Z5</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>jane@example.com</td>
+              <td>+91 9123456780</td>
+              <td>456, Park Avenue, City</td>
+              <td>33BBBBB1111B2Z6</td>
+              <td>
+                <button class="action-btn">Edit</button>
+                <button class="action-btn">Delete</button>
+              </td>
+            </tr>
+            <!-- More customers here -->
+          </tbody>
+        </table>
+      </main>
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <button class="ai-fab" title="Ask AI" aria-label="Ask AI" onclick="showAISidebar()">
+    <i class="ri-robot-2-line"></i>
+  </button>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+
+</body>
+</html>
