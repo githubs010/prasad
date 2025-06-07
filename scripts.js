@@ -1,10 +1,11 @@
 // scripts.js
 
-// Theme color pills logic
-function setColorTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('bbs-color-theme', theme);
-  document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p.getAttribute('data-theme') === theme));
+const colorThemes=["blue","black","orange","sky"];
+function setColorTheme(theme){
+  if(!colorThemes.includes(theme)) theme="blue";
+  document.documentElement.setAttribute("data-theme",theme);
+  localStorage.setItem("bbs-color-theme",theme);
+  document.querySelectorAll(".pill").forEach(p=>p.classList.toggle("active",p.getAttribute("data-theme")===theme));
 }
 
 (() => {
