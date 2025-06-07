@@ -18,7 +18,7 @@
       --card-bg-light: #e5e7eb;
     }
     /* Dark mode variables */
-    body.dark-mode {
+    body.dark {
       --bg-dark: #1e293b;
       --text-dark: #e0e7ff;
       --card-bg: #111827;
@@ -518,11 +518,11 @@
     const themeToggleBtn = document.getElementById('theme-toggle');
     const saved = localStorage.getItem('bbs-theme');
     if (saved === 'dark') {
-      document.body.classList.add('dark-mode');
+      document.body.classList.add('dark');
       themeToggleBtn.innerHTML = '<i class="ri-sun-line"></i>';
     }
     themeToggleBtn.addEventListener('click', () => {
-      const dark = document.body.classList.toggle('dark-mode');
+      const dark = document.body.classList.toggle('dark');
       themeToggleBtn.innerHTML = dark ? '<i class="ri-sun-line"></i>' : '<i class="ri-moon-clear-line"></i>';
       localStorage.setItem('bbs-theme', dark ? 'dark' : 'light');
     });

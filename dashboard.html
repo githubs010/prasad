@@ -492,8 +492,15 @@
     updateTime();
 
     const themeToggleBtn = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('bbs-theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+      themeToggleBtn.innerHTML = '<i class="ri-sun-line"></i>';
+    }
     themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
+      const dark = document.body.classList.toggle('dark');
+      themeToggleBtn.innerHTML = dark ? '<i class="ri-sun-line"></i>' : '<i class="ri-moon-clear-line"></i>';
+      localStorage.setItem('bbs-theme', dark ? 'dark' : 'light');
     });
 
     const modules = [
