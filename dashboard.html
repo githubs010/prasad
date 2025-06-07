@@ -118,10 +118,6 @@
     setInterval(updateTime, 1000);
     updateTime();
 
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
 
     const modules = [
       { name: 'Home', url: 'dashboard.html' },
@@ -250,5 +246,6 @@
       alert('Report generated (placeholder)');
     });
   </script>
+  <script src="scripts.js"></script>
 </body>
 </html>

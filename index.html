@@ -135,18 +135,6 @@
     document.getElementById('sales-today').textContent = '₹12,500';
     document.getElementById('sales-month').textContent = '₹1,20,000';
 
-    // Dark mode toggle with persistence
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const saved = localStorage.getItem('bbs-theme');
-    if (saved === 'dark') {
-      document.body.classList.add('dark-mode');
-      themeToggleBtn.innerHTML = '<i class="ri-sun-line"></i>';
-    }
-    themeToggleBtn.addEventListener('click', () => {
-      const dark = document.body.classList.toggle('dark-mode');
-      themeToggleBtn.innerHTML = dark ? '<i class="ri-sun-line"></i>' : '<i class="ri-moon-clear-line"></i>';
-      localStorage.setItem('bbs-theme', dark ? 'dark' : 'light');
-    });
 
     // Global search setup
     const modules = [
@@ -271,5 +259,6 @@
       alert('Report generated (placeholder)');
     });
   </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
