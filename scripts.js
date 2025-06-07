@@ -165,6 +165,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // handle login or register form submission
+  const authForm = document.querySelector('form.login-form');
+  if (authForm) {
+    authForm.addEventListener('submit', e => {
+      e.preventDefault();
+      localStorage.setItem('bbs-logged-in', 'true');
+      window.location.href = 'index.html';
+    });
+  }
+
   const loggedIn = localStorage.getItem('bbs-logged-in') === 'true';
   const url = window.location.pathname;
   const onLoginPage = url.endsWith('login.html') || url.endsWith('register.html');
