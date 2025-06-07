@@ -5,6 +5,16 @@
   --text-dark: #e0e7ff;
   --card-bg: #111827;
   --card-bg-light: #1e293b;
+  --border-light: #d1d5db;
+  --border-dark: #374151;
+  --theme: var(--blue);
+  --theme-dark: var(--blue-light);
+  --input-dark: #23263b;
+  --card-dark: #1e293b;
+  --card-bg-dark: #111827;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --shadow-light: 0 2px 6px rgba(0,0,0,0.1);
+  --shadow-dark: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 body, html {
@@ -401,4 +411,309 @@ header.main-header button.theme-toggle:hover {
     max-width: 100%;
     margin-left: 0.5rem;
   }
+}
+
+/* ------------------------- */
+/* Additional page-specific styles */
+/* ------------------------- */
+
+/* Table layout used in many modules */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+}
+
+body.dark th,
+body.dark td {
+  border-color: var(--border-dark);
+}
+
+th {
+  background-color: var(--theme);
+  color: white;
+}
+
+/* Generic action buttons */
+.action-btn {
+  background: var(--theme);
+  border: none;
+  padding: 0.3rem 0.7rem;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.action-btn:hover {
+  background: var(--theme-dark);
+}
+
+/* Customer form */
+form.customer-form {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+form.customer-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+form.customer-form input,
+form.customer-form textarea {
+  width: 100%;
+  padding: 0.55rem 1rem;
+  border-radius: 0.6rem;
+  border: 1.2px solid var(--border-light);
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+form.customer-form input:focus,
+form.customer-form textarea:focus {
+  border-color: var(--theme);
+  outline: none;
+}
+body.dark form.customer-form input,
+body.dark form.customer-form textarea {
+  background: var(--input-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+form.customer-form button {
+  margin-top: 1.5rem;
+  background: var(--theme);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+form.customer-form button:hover {
+  background: var(--theme-dark);
+}
+
+/* Supplier form */
+form.supplier-form {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+form.supplier-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+form.supplier-form input,
+form.supplier-form textarea {
+  width: 100%;
+  padding: 0.55rem 1rem;
+  border-radius: 0.6rem;
+  border: 1.2px solid var(--border-light);
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+form.supplier-form input:focus,
+form.supplier-form textarea:focus {
+  border-color: var(--theme);
+  outline: none;
+}
+body.dark form.supplier-form input,
+body.dark form.supplier-form textarea {
+  background: var(--input-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+form.supplier-form button {
+  margin-top: 1.5rem;
+  background: var(--theme);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+form.supplier-form button:hover {
+  background: var(--theme-dark);
+}
+
+/* User form */
+.user-form {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+.user-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.user-form input,
+.user-form select {
+  width: 100%;
+  padding: 0.55rem 1rem;
+  border-radius: 0.6rem;
+  border: 1.2px solid var(--border-light);
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+body.dark .user-form input,
+body.dark .user-form select {
+  background: var(--input-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+.user-form input:focus,
+.user-form select:focus {
+  border-color: var(--theme);
+  outline: none;
+}
+.user-form button {
+  margin-top: 1.5rem;
+  background: var(--theme);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.user-form button:hover {
+  background: var(--theme-dark);
+}
+
+/* Reports page */
+.reports-section {
+  margin-bottom: 2rem;
+}
+.reports-section h2 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--theme-dark);
+}
+.report-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+.report-card {
+  background: var(--card-bg-light);
+  padding: 1rem 1.4rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-light);
+  width: 240px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+body.dark .report-card {
+  background: var(--card-bg-dark);
+  box-shadow: var(--shadow-dark);
+}
+.report-card:hover {
+  background: var(--theme);
+  color: white;
+  box-shadow: 0 8px 24px var(--theme);
+}
+.report-card i {
+  font-size: 2.8rem;
+  margin-bottom: 0.4rem;
+}
+.report-card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Settings page */
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.tab {
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  border-radius: 0.6rem;
+  background-color: var(--border-light);
+  font-weight: 600;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+body.dark .tab {
+  background-color: var(--border-dark);
+}
+.tab.active {
+  background-color: var(--theme);
+  color: white;
+  box-shadow: 0 4px 10px var(--theme-dark);
+}
+.tab-content {
+  background: var(--glass-bg);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-light);
+  max-width: 800px;
+  transition: background-color 0.3s ease;
+}
+body.dark .tab-content {
+  background: var(--card-dark);
+  box-shadow: var(--shadow-dark);
+}
+.form-group {
+  margin-bottom: 1.2rem;
+}
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+input,
+select {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  border: 1.2px solid var(--border-light);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+body.dark input,
+body.dark select {
+  background: var(--input-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+input:focus,
+select:focus {
+  border-color: var(--theme);
+  outline: none;
+}
+button.save-btn {
+  background-color: var(--theme);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button.save-btn:hover {
+  background-color: var(--theme-dark);
 }
