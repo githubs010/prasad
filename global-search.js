@@ -29,17 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Modules/pages list for search
   const modules = [
     { name: 'Home', url: 'index.html' },
-    { name: 'Create Profile', url: 'register.html' },
-    { name: 'Invoice (POS)', url: 'purchase.html' },
+    { name: 'Business Profile', url: 'register.html' },
+    { name: 'Invoice', url: 'purchase.html' },
     { name: 'Stock In/Out', url: 'purchase.html' },
     { name: 'Stock Update', url: 'products.html' },
     { name: 'Products', url: 'products.html' },
     { name: 'Product List', url: 'products-list.html' },
     { name: 'Sales', url: 'sales.html' },
     { name: 'Purchase', url: 'purchase.html' },
-    { name: 'Customers', url: 'customers.html' },
+    { name: 'Load Customers', url: 'customers.html' },
     { name: 'Suppliers', url: 'suppliers.html' },
-    { name: 'Reports', url: 'reports.html' },
+    { name: 'Report Generate', url: 'reports.html' },
     { name: 'MIS Report', url: 'reports.html' },
     { name: 'Settings', url: 'settings.html' },
     { name: 'User Management', url: 'users.html' }

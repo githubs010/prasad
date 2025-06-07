@@ -409,19 +409,19 @@
         </details>
         <details>
           <summary><i class="ri-shopping-bag-line"></i> Sales & Purchase</summary>
-          <a href="purchase.html">Invoice (POS)</a>
+          <a href="purchase.html">Invoice</a>
           <a href="sales.html">Sales</a>
           <a href="purchase.html">Purchase</a>
         </details>
         <details>
           <summary><i class="ri-group-line"></i> People</summary>
-          <a href="customers.html">Customers</a>
+          <a href="customers.html">Load Customers</a>
           <a href="suppliers.html">Suppliers</a>
-          <a href="register.html">Create Profile</a>
+          <a href="register.html">Business Profile</a>
         </details>
         <details>
           <summary><i class="ri-settings-3-line"></i> Reports & Settings</summary>
-          <a href="reports.html">Reports</a>
+          <a href="reports.html">Report Generate</a>
           <a href="reports.html">MIS Report</a>
           <a href="settings.html">Settings</a>
           <a href="users.html">User Management</a>
@@ -450,6 +450,18 @@
       </header>
       <main class="content">
         <div class="cards">
+          <div class="card">
+            <div class="card-info">
+              <div class="card-value" id="sales-today">₹0</div>
+              <div class="card-label">Today's Sales</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-info">
+              <div class="card-value" id="sales-month">₹0</div>
+              <div class="card-label">Sales This Month</div>
+            </div>
+          </div>
           <div class="card">
             <div class="card-info">
               <div class="card-value" id="stock-in">35</div>
@@ -498,6 +510,10 @@
     setInterval(updateTime, 1000);
     updateTime();
 
+    // demo sales numbers
+    document.getElementById('sales-today').textContent = '₹12,500';
+    document.getElementById('sales-month').textContent = '₹1,20,000';
+
     // Dark mode toggle with persistence
     const themeToggleBtn = document.getElementById('theme-toggle');
     const saved = localStorage.getItem('bbs-theme');
@@ -514,17 +530,17 @@
     // Global search setup
     const modules = [
       { name: 'Home', url: 'index.html' },
-      { name: 'Create Profile', url: 'register.html' },
-      { name: 'Invoice (POS)', url: 'purchase.html' },
+      { name: 'Business Profile', url: 'register.html' },
+      { name: 'Invoice', url: 'purchase.html' },
       { name: 'Stock In/Out', url: 'purchase.html' },
       { name: 'Stock Update', url: 'products.html' },
       { name: 'Products', url: 'products.html' },
       { name: 'Product List', url: 'products-list.html' },
       { name: 'Sales', url: 'sales.html' },
       { name: 'Purchase', url: 'purchase.html' },
-      { name: 'Customers', url: 'customers.html' },
+      { name: 'Load Customers', url: 'customers.html' },
       { name: 'Suppliers', url: 'suppliers.html' },
-      { name: 'Reports', url: 'reports.html' },
+      { name: 'Report Generate', url: 'reports.html' },
       { name: 'MIS Report', url: 'reports.html' },
       { name: 'Settings', url: 'settings.html' },
       { name: 'User Management', url: 'users.html' }
