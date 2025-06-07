@@ -1,0 +1,30 @@
+:root {
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+  --shadow-color: rgba(0,0,0,0.5);
+}
+body, form, form label, form input, form select, form textarea, form button {
+  text-shadow: 0.5px 1px var(--shadow-color);
+}
+
+[data-theme="blue"] {
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+}
+[data-theme="black"] {
+  --blue: #000000;
+  --blue-light: #4b5563;
+}
+[data-theme="orange"] {
+  --blue: #ff6b00;
+  --blue-light: #ff9e42;
+}
+[data-theme="sky"] {
+  --blue: #0ea5e9;
+  --blue-light: #38bdf8;
+}
+
+.pill[data-theme="blue"] { background: #3b82f6; }
+.pill[data-theme="black"] { background: #000; }
+.pill[data-theme="orange"] { background: #ff6b00; }
+.pill[data-theme="sky"] { background: #0ea5e9; }
