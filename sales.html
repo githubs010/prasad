@@ -83,6 +83,7 @@
           <input type="number" id="total-amount" placeholder="Calculated automatically" readonly />
 
           <button type="submit" class="btn-login">Save Sale</button>
+          <button type="button" class="btn-login" onclick="window.print()">Print Invoice</button>
         </form>
       </main>
       <footer class="footer-bar">
@@ -102,6 +103,8 @@
       const unitPriceInput = document.getElementById('unit-price');
       const gstRateInput = document.getElementById('gst-rate');
       const totalAmountInput = document.getElementById('total-amount');
+      const invoiceInput = document.getElementById('sales-invoice');
+      const customerInput = document.getElementById('customer-name');
 
       function calculateTotal() {
         const qty = parseFloat(quantityInput.value) || 0;
@@ -115,6 +118,18 @@
       quantityInput.addEventListener('input', calculateTotal);
       unitPriceInput.addEventListener('input', calculateTotal);
       gstRateInput.addEventListener('input', calculateTotal);
+
+      // Generate incremental invoice number using localStorage
+      let lastInv = parseInt(localStorage.getItem('bbs-last-invoice') || '1000', 10);
+      lastInv += 1;
+      localStorage.setItem('bbs-last-invoice', String(lastInv));
+      invoiceInput.value = `INV-${lastInv}`;
+
+      // Prefill customer from query string
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('customer')) {
+        customerInput.value = params.get('customer');
+      }
     });
   </script>
 

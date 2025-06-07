@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modules = [
     { name: 'Home', url: 'index.html' },
     { name: 'Business Profile', url: 'register.html' },
-    { name: 'Invoice', url: 'purchase.html' },
+    { name: 'Invoice', url: 'sales.html' },
     { name: 'Stock In/Out', url: 'purchase.html' },
     { name: 'Stock Update', url: 'products.html' },
     { name: 'Products', url: 'products.html' },
