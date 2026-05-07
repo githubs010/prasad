@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POS Terminal | Business Billing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+  <link href="theme.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="ri-shield-star-line"></i>
+        <h2>Business Billing System</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="products.html"><i class="ri-store-line"></i> Products</a>
+        <a href="purchase.html"><i class="ri-truck-line"></i> Purchase</a>
+        <a href="sales.html"><i class="ri-shopping-cart-line"></i> Sales</a>
+        <a href="pos.html" class="active"><i class="ri-qr-scan-2-line"></i> POS Terminal</a>
+        <a href="customers.html"><i class="ri-user-line"></i> Load Customers</a>
+        <a href="suppliers.html"><i class="ri-team-line"></i> Suppliers</a>
+        <a href="reports.html"><i class="ri-bar-chart-line"></i> Report Generate</a>
+        <a href="settings.html"><i class="ri-settings-4-line"></i> Settings</a>
+        <a href="users.html"><i class="ri-account-box-line"></i> User Management</a>
+      </nav>
+      <div class="theme-pills" id="theme-pills">
+        <span class="pill" data-theme="blue" title="Blue"></span>
+        <span class="pill" data-theme="black" title="Black"></span>
+        <span class="pill" data-theme="orange" title="Orange"></span>
+        <span class="pill" data-theme="sky" title="Sky Blue"></span>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <header class="main-header">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="ri-moon-clear-line"></i>
+        </button>
+        <div>
+          <h1>POS Terminal</h1>
+          <small class="header-footer-text">Simple demo page.</small>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn-login-header logout-btn">Logout</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="card" style="max-width:520px; padding:2rem; margin:2rem auto; text-align:center;">
+          <h2>Hello World</h2>
+          <p>Welcome to the POS page.</p>
+        </div>
+      </main>
+
+      <footer class="footer-bar">
+        2025 © Business Billing System - A product of 30Days Technologies Pvt. Ltd.
+      </footer>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script src="global-search.js"></script>
+</body>
+</html>
