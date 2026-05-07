@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'Products', url: 'products.html' },
     { name: 'Product List', url: 'products-list.html' },
     { name: 'Sales', url: 'sales.html' },
+    { name: 'POS Terminal', url: 'pos.html' },
     { name: 'Purchase', url: 'purchase.html' },
     { name: 'Load Customers', url: 'customers.html' },
     { name: 'Suppliers', url: 'suppliers.html' },
